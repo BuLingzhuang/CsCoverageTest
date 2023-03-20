@@ -1,0 +1,88 @@
+//plugins {
+//    id 'com.android.library'
+////    id 'com.android.application'
+//    id 'org.jetbrains.kotlin.android'
+////    id 'org.gradle.java-gradle-plugin'
+//}
+//
+//android {
+//    namespace 'com.ss.android.ugc.bytex.coverage_plugin'
+//    compileSdk 33
+//
+//    defaultConfig {
+//        minSdk 21
+//        targetSdk 33
+//
+//        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+//        consumerProguardFiles "consumer-rules.pro"
+//    }
+//
+//    buildTypes {
+//        release {
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//        }
+//    }
+//    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+//    }
+//    kotlinOptions {
+//        jvmTarget = '1.8'
+//    }
+//}
+//
+//dependencies {
+//    api "com.bytedance.android.byteX:base-plugin:0.3.0"
+//    api gradleApi()
+//    implementation localGroovy()
+//    implementation 'com.android.tools.build:gradle:7.1.0'
+//    implementation 'com.google.code.gson:gson:2.8.9'
+//}
+
+apply plugin: 'groovy'
+//apply plugin: 'maven'
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation "com.bytedance.android.byteX:base-plugin:0.3.0"
+    implementation 'com.android.tools.build:gradle:7.1.0'
+    implementation 'com.google.code.gson:gson:2.8.9'
+//    implementation 'com.quinn.hunter:hunter-transform:0.9.3'
+}
+
+repositories {
+    maven {
+        url "https://artifact.bytedance.com/repository/byteX/"
+    }
+    google()
+    mavenCentral()
+    gradlePluginPortal()
+}
+
+//uploadArchives {
+//    repositories.mavenDeployer {
+//        repository(url: uri('../repo'))
+//        pom.groupId = 'com.intsig.csbooster'
+//        pom.artifactId = 'hook'
+//        pom.version = '0.0.1-alpha'
+//    }
+//
+////    configuration = configurations.archives
+////    repositories.mavenDeployer {
+////        repository(url: 'http://192.168.19.51:8081/repository/inner-release/') {//仓库地址
+////            authentication(userName: "jesse_li",//用户名
+////                    password: "android")//密码
+////        }
+////
+////        pom.project {
+////            name 'csBooster'
+////            groupId = 'com.intsig.csbooster'
+////            url 'http://192.168.19.51:8081/repository/inner-release/'//仓库地址
+////            artifactId 'csBooster'
+////            version '0.0.1-alpha'
+////        }
+////    }
+//}
+

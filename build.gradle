@@ -1,0 +1,61 @@
+//// Top-level build file where you can add configuration options common to all sub-projects/modules.
+//buildscript {
+//    ext.plugin_version="0.3.0"
+//    dependencies {
+//        classpath "com.bytedance.android.byteX:base-plugin:${plugin_version}"
+//        classpath fileTree(include: ['*.jar'], dir: 'libs')
+////        classpath "com.bytedance.android.byteX:shrink-r-plugin:${plugin_version}"
+////        classpath "com.bytedance.android.byteX:coverage-lib:${plugin_version}"
+////        classpath "com.bytedance.android.byteX:coverage-plugin:${plugin_version}"
+//    }
+//}
+//
+//plugins {
+//    id 'com.android.application' version '7.4.2' apply false
+//    id 'com.android.library' version '7.4.2' apply false
+//    id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
+//}
+
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        maven {
+            url "https://artifact.bytedance.com/repository/byteX/"
+        }
+        mavenCentral()
+        google()
+        maven {
+            url uri('repo')
+        }
+        gradlePluginPortal()
+//        maven {
+//            url "http://192.168.19.51:8081/repository/inner-release/"
+//        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.4.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0"
+//        classpath 'com.intsig.csbooster:hook:0.0.1-alpha'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        maven {
+            url "https://artifact.bytedance.com/repository/byteX/"
+        }
+        mavenCentral()
+        google()
+//        maven {
+//            url "http://192.168.19.51:8081/repository/inner-release/"
+//        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
